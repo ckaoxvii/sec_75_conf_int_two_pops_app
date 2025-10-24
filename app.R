@@ -211,7 +211,7 @@ server <- function(input, output, session) {
     lower_limit <- sample_diff - margin_error
     upper_limit <- sample_diff + margin_error
     
-    # Return results as a wide format data frame
+    # Return results as a wide format data frame with z* included
     data.frame(
       `Count 1` = count1,
       `Total 1` = total1,
@@ -219,6 +219,7 @@ server <- function(input, output, session) {
       `Total 2` = total2,
       `Sample Difference` = round(sample_diff, 6),
       `Standard Error` = round(se, 6),
+      `z*` = round(z_crit, 4),
       `Lower Limit` = round(lower_limit, 6),
       `Upper Limit` = round(upper_limit, 6),
       check.names = FALSE
